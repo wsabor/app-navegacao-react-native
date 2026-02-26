@@ -1,19 +1,32 @@
 import { useRouter } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+
+import Button from "@/components/Button";
 
 export default function Home() {
   const router = useRouter();
+
+  const handlePress = () => {
+    console.log("Botão clicado!");
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bem vindo ao React Native!</Text>
       <Text style={styles.subtitle}>Esta é a tela inicial do nosso app</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => router.push("/detalhes")}
-      >
-        <Text style={styles.buttonText}>Ir para detalhes</Text>
-      </TouchableOpacity>
+      <Button
+        title="Ir para Detalhes"
+        onPress={() => router.push("/Detalhes")}
+        color="#EC7000"
+      />
+
+      {/* <Button title="Salvar" onPress={handlePress} /> */}
+      {/* <Button title="Cancelar" onPress={() => router.back()} color="#FF3B30" /> */}
+      <Button
+        title="Contador"
+        onPress={() => router.push("/Contador")}
+        color="#34C759"
+      />
     </View>
   );
 }
@@ -24,18 +37,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
-    backgroundColor: "#f4ff22",
+    backgroundColor: "#000b62",
+    gap: 8,
   },
   title: {
     fontSize: 24,
     fontWeight: 700,
-    color: "#333",
+    color: "#EFEFEF",
     marginBottom: 16,
+    textAlign: "center",
   },
   subtitle: {
     fontSize: 18,
     fontWeight: 500,
-    color: "#555",
+    color: "#DDD",
     marginBottom: 28,
   },
   button: {
